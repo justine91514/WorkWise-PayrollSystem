@@ -7,16 +7,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = trim($_POST["username"]);
     $password = $_POST["password"];
+	$role = $_POST["role"];
 
     $stmt = $conn->prepare("
         SELECT *
         FROM users
         WHERE username = ?
+        AND role = ?
     ");
 
     $stmt->bind_param(
-        "s",
-        $username
+        "ss",
+        $username,
+		$role
     );
 
     $stmt->execute();
@@ -32,14 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user["password"]
         )) {
 
-            $_SESSION["user_id"] =
-                $user["id"];
-
-            $_SESSION["username"] =
-                $user["username"];
-
-            $_SESSION["name"] =
-                $user["name"];
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["username"] = $user["username"];
+            $_SESSION["name"] = $user["name"];
+            $_SESSION["role"] = $user["role"];
 
             header("Location: dashboard.php");
             exit();
@@ -106,6 +105,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             required
         >
 
+        <select name="role" required>
+
+            <option value="">Select User Type</option>
+
+            <option value="Employee">
+                Employee
+            </option>
+
+            <option value="Admin">
+                Admin
+            </option>
+
+            <option value="IT Administrator">
+                IT Administrator
+            </option>
+
+        </select>
+
         <button type="submit">
             Login
         </button>
@@ -127,4 +144,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
-
