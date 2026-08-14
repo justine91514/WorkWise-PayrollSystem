@@ -1,0 +1,86 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Body */
+body{
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* Login Box */
+.login-box{
+    width:350px;
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.login-box h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+/* Error Message */
+.error{
+    color:red;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+/* Input Fields */
+.signup-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.signup-box input:focus{
+    border-color:#007BFF;
+    outline:none;
+}
+
+/* Button */
+.signup-box button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:5px;
+    background:#007BFF;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.signup-box button:hover{
+    background:#0056b3;
+}
+
+/* Links */
+.signup-box a{
+    color:#007BFF;
+    text-decoration:none;
+}
+
+.signup-box a:hover{
+    text-decoration:underline;
+}
+
+.signup-box p{
+    text-align:center;
+    margin-top:15px;
+}
